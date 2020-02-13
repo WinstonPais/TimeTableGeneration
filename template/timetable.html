@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load my_extras %}
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      table, th, td {
+  border: 1px solid black;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>TimeTables</h1>
+        {% for batchindex in length %}
+          <br><br>
+          <h3>{{ cl|ind:batchindex }}</h3>
+          <table>
+            <tr>
+              <th></th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7</th>
+            </tr>
+            {% for dayno in range5 %}
+              <tr>
+                <td>{{ dl|ind:dayno }}</td>
+                {% for period in range7 %}
+                  <td>{{ timetables|ind:batchindex|ind:dayno|ind:period }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+
+          </table>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
