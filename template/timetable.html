@@ -16,8 +16,8 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>TimeTables</h1>
-        {% for batchindex in length %}
+        <h1>Class TimeTables</h1>
+        {% for batchindex in noOfClasses %}
           <br><br>
           <h3>{{ cl|ind:batchindex }}</h3>
           <table>
@@ -36,6 +36,33 @@
                 <td>&nbsp &nbsp {{ dl|ind:dayno }} &nbsp &nbsp</td>
                 {% for period in range7 %}
                   <td>&nbsp &nbsp {{ timetables|ind:batchindex|ind:dayno|ind:period }} &nbsp &nbsp</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+
+          </table>
+        {% endfor %}
+        <hr class="featurette-divider">
+        <h1>Faculty TimeTables</h1>
+        {% for batchindex in facultylen %}
+          <br><br>
+          <h3>{{ fl|ind:batchindex }}</h3>
+          <table>
+            <tr>
+              <th></th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7</th>
+            </tr>
+            {% for dayno in range5 %}
+              <tr>
+                <td>&nbsp &nbsp {{ dl|ind:dayno }} &nbsp &nbsp</td>
+                {% for period in range7 %}
+                  <td>&nbsp &nbsp {{ ftimetables|ind:batchindex|ind:dayno|ind:period }} &nbsp &nbsp</td>
                 {% endfor %}
               </tr>
             {% endfor %}
