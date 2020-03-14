@@ -49,6 +49,10 @@ def resetTables():
     cur.close()
     resetCounters()
 
+def addinputNoSubject(staff_id,day,period,class_id):
+    cur=conn.cursor()
+    cur.execute("insert into staff_time_table (staff_id,day,period,class_id) values ('"+str(staff_id)+"','"+str(day)+"',"+period+",'"+str(class_id)+"')")
+    cur.close()
 
 def addInputNoStaff(sub_id,day,period,class_id):
     cur=conn.cursor()
@@ -62,7 +66,7 @@ def addInputNoStaff(sub_id,day,period,class_id):
     cur.close()
 
 
-def addInputWithStaff(staff_id,sub_id,day,period,class_id):
+def addInputWithStaffAndSubject(staff_id,sub_id,day,period,class_id):
     cur=conn.cursor()
     cur.execute("insert into class_time_table (staff_id,sub_id,day,period,class_id) values ('"+str(staff_id)+"','"+str(sub_id)+"','"+str(day)+"',"+str(period)+",'"+str(class_id)+"') ")
     cur.execute("select ctt_id from class_time_table where staff_id='"+str(staff_id)+"' and sub_id='"+str(sub_id)+"' and day='"+str(day)+"' and period="+str(period)+" and class_id='"+str(class_id)+"'")
@@ -126,9 +130,11 @@ def addinput():
 
 def getTT():
     addinput()
+    classList=["3A","3B"]
     TTList=[]
-    TTList.append(getClassTimeTable("3A"))
-    TTList.append(getClassTimeTable("3B"))
+    for classname in classList:
+        TTList.append(getClassTimeTable(classname))
+    # TTList.append(getClassTimeTable("3B"))
 
     resetTables()
-    return TTList
+    return TTList,classList

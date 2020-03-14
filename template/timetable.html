@@ -8,7 +8,9 @@
     <style>
       table, th, td {
   border: 1px solid black;
+  text-align: center;
 }
+
     </style>
   </head>
   <body>
@@ -31,9 +33,9 @@
             </tr>
             {% for dayno in range5 %}
               <tr>
-                <td>{{ dl|ind:dayno }}</td>
+                <td>&nbsp &nbsp {{ dl|ind:dayno }} &nbsp &nbsp</td>
                 {% for period in range7 %}
-                  <td>{{ timetables|ind:batchindex|ind:dayno|ind:period }}</td>
+                  <td>&nbsp &nbsp {{ timetables|ind:batchindex|ind:dayno|ind:period }} &nbsp &nbsp</td>
                 {% endfor %}
               </tr>
             {% endfor %}
