@@ -1,45 +1,219 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <title>SJEC-CSE</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="jumbotron">
-        <form class="" action="index.html" method="post">
-          <!-- {% csrf_token %} -->
-          <select class="form-control col-lg-3" id="exampleFormControlSelect1">
-            <option>Staff_Id</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <select class="form-control col-lg-3" id="exampleFormControlSelect1">
-            <option>Sub_Id</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <select class="form-control col-lg-3" id="exampleFormControlSelect1">
-            <option>Day</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <select class="form-control col-lg-3" id="exampleFormControlSelect1">
-            <option>Period</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </form>
-      </div>
-    </div>
-  </body>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <form>
+  <table class="table" id="myTable">
+    <thead>
+      <tr>
+        <th>Staff ID</th>
+        <th>Subject ID</th>
+        <th>Day</th>
+		<th>Period</th>
+		<th>Class</th>
+		<th><button type="button" onclick="addRow(this)">Add</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+		<td>
+		 <select > <option> CSE01 </option>
+         <option> CSE02</option>
+		 <option> CSE03 </option>
+		 <option> CSE04 </option>
+		 <option> CSE05 </option> </select>
+		</td>
+		<td>
+		 <select > <option> 17CS61 </option>
+         <option> 17CS62 </option>
+		 <option> 17CS63 </option>
+		 <option> 17CS64 </option>
+		 <option> 17CS65 </option></select>
+		</td>
+
+		<td>
+		 <select > <option> Monday </option>
+         <option> Tuesday </option>
+		 <option> Wednesday </option>
+		 <option> Thursday </option>
+		 <option> Friday </option></select>
+		</td>
+		<td>
+		 <select > <option> 1 </option>
+         <option> 2 </option>
+		 <option> 3 </option>
+		 <option> 4 </option>
+		 <option> 5 </option>
+		 <option> 6 </option>
+		 <option> 7 </option></select>
+		</td>
+		<td>
+		 <select > <option> 4a </option>
+         <option> 4b </option>
+		 <option> 6a </option>
+		 <option> 6b </option>
+		 <option> 8a </option>
+		 <option> 8b </option>
+		 </select>
+		</td>
+      </tr>
+
+    </tbody>
+  </table>
+  </form>
+</div>
+<script>
+function addRow(btn) {
+    var parentRow = btn.parentNode.parentNode;
+    var table = parentRow.parentNode;
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
+	var cell1 = row.insertCell(0);
+    var element1 = document.createElement("select");
+	var option1 = document.createElement("option");
+    option1.innerHTML = "CSE01";
+    option1.value = "1";
+    element1.add(option1, null);
+	var option2 = document.createElement("option");
+    option2.innerHTML = "CSE02";
+    option2.value = "2";
+    element1.add(option2, null);
+	var option3 = document.createElement("option");
+    option3.innerHTML = "CSE03";
+    option3.value = "3";
+    element1.add(option3, null);
+	var option4 = document.createElement("option");
+    option4.innerHTML = "CSE04";
+    option4.value = "4";
+    element1.add(option4, null);
+	var option5 = document.createElement("option");
+    option5.innerHTML = "CSE05";
+    option5.value = "5";
+    element1.add(option5, null);
+	cell1.appendChild(element1);
+
+    var cell2 = row.insertCell(1);
+    var element2 = document.createElement("select");
+    var option1 = document.createElement("option");
+    option1.innerHTML = "17CS61";
+    option1.value = "1";
+    element2.add(option1, null);
+    var option2 = document.createElement("option");
+    option2.innerHTML = "17CS62";
+    option2.value = "2";
+    element2.add(option2, null);
+	var option3 = document.createElement("option");
+    option3.innerHTML = "17CS63";
+    option3.value = "3";
+    element2.add(option3, null);
+    var option4 = document.createElement("option");
+    option4.innerHTML = "17CS64";
+    option4.value = "4";
+    element2.add(option4, null);
+	var option5 = document.createElement("option");
+    option5.innerHTML = "17CS65";
+    option5.value = "5";
+    element2.add(option5, null);
+    cell2.appendChild(element2);
+
+	var cell3 = row.insertCell(2);
+    var element3 = document.createElement("select");
+    var option1 = document.createElement("option");
+    option1.innerHTML = "Monday";
+    option1.value = "1";
+    element3.add(option1, null);
+    var option2 = document.createElement("option");
+    option2.innerHTML = "Tuesday";
+    option2.value = "2";
+    element3.add(option2, null);
+	var option3 = document.createElement("option");
+    option3.innerHTML = "Wednesday";
+    option3.value = "3";
+    element3.add(option3, null);
+    var option4 = document.createElement("option");
+    option4.innerHTML = "Thursday";
+    option4.value = "4";
+    element3.add(option4, null);
+	var option5 = document.createElement("option");
+    option5.innerHTML = "Friday";
+    option5.value = "5";
+    element3.add(option5, null);
+    cell3.appendChild(element3);
+
+
+	var cell4 = row.insertCell(3);
+    var element4 = document.createElement("select");
+    var option1 = document.createElement("option");
+    option1.innerHTML = "1";
+    option1.value = "1";
+    element4.add(option1, null);
+    var option2 = document.createElement("option");
+    option2.innerHTML = "2";
+    option2.value = "2";
+    element4.add(option2, null);
+	var option3 = document.createElement("option");
+    option3.innerHTML = "3";
+    option3.value = "3";
+    element4.add(option3, null);
+    var option4 = document.createElement("option");
+    option4.innerHTML = "4";
+    option4.value = "4";
+    element4.add(option4, null);
+	var option5 = document.createElement("option");
+    option5.innerHTML = "5";
+    option5.value = "5";
+    element4.add(option5, null);
+	var option6 = document.createElement("option");
+    option6.innerHTML = "6";
+    option6.value = "6";
+    element4.add(option6, null);
+	var option7 = document.createElement("option");
+    option7.innerHTML = "7";
+    option7.value = "7";
+    element4.add(option7, null);
+    cell4.appendChild(element4);
+
+	var cell5 = row.insertCell(4);
+    var element5 = document.createElement("select");
+    var option1 = document.createElement("option");
+    option1.innerHTML = "4a";
+    option1.value = "1";
+    element5.add(option1, null);
+    var option2 = document.createElement("option");
+    option2.innerHTML = "4b";
+    option2.value = "2";
+    element5.add(option2, null);
+	var option3 = document.createElement("option");
+    option3.innerHTML = "6a";
+    option3.value = "3";
+    element5.add(option3, null);
+    var option4 = document.createElement("option");
+    option4.innerHTML = "6b";
+    option4.value = "4";
+    element5.add(option4, null);
+	var option5 = document.createElement("option");
+    option5.innerHTML = "8a";
+    option5.value = "5";
+    element5.add(option5, null);
+	var option6 = document.createElement("option");
+    option6.innerHTML = "8b";
+    option6.value = "6";
+    element5.add(option6, null);
+    cell5.appendChild(element5);
+
+}
+</script>
+</body>
 </html>
