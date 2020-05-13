@@ -148,7 +148,6 @@ def getStaffTimeTable(staff_id):
     # print(retString)
     return retList
 
-
 def addinput():
     # addInputWithStaffAndSubject(staff_id,sub_id,day,period,class_id)
     addInputWithStaffAndSubject("KKM","CPS","TUE",4,"F")
@@ -188,6 +187,7 @@ def addinput():
     addInputNoStaff("KAN", "THU", 7, "3B")
     addInputNoStaff("MAT-III", "FRI", 2, "3B")
 
+    
 def getTT():
     addinput()
     classList=["3A","3B","F","G","H","I"]
