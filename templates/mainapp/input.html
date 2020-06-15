@@ -8,7 +8,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </HEAD>
 <BODY>
-	<INPUT type="button" value="Add Row" onclick="addTheoryRow('dataTable')" />
+	<INPUT type="button" value="Add Theory" onclick="addTheoryRow('dataTable')" />
+  <INPUT type="button" value="Add Lab" onclick="addLabRow('dataTable')" />
 	<INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
 	<div class="container">
 	<form class="" action="{% url 'mainapp:inputPage' %}" method="post">
@@ -17,6 +18,7 @@
 	  <thead>
 		<tr>
 			<th> </th>
+      <th> Class Type</th>
 			<th>Staff ID</th>
 			<th>Subject ID</th>
 			<th>Day</th>
@@ -27,6 +29,7 @@
 	<tbody id="dataTable">
 		<TR>
 			<TD><INPUT type="checkbox" name="chk"/></TD>
+      <td>Theory</td>
 			<td>
 				<select name="staff_id">
 					<option> CSE01 </option>
@@ -119,6 +122,39 @@
 
 			var colCount = table.rows[0].cells.length;
 
+      //first column
+      row.insertCell(0).innerHTML=table.rows[0].cells[0].innerHTML;
+
+      //2nd column
+      row.insertCell(1).innerHTML="Lab"
+
+      //third column (staf id)
+      row.insertCell(2).innerHTML=table.rows[0].cells[2].innerHTML;
+      row.cells[2].childNodes[0].selectedIndex = 0;
+
+      //4th col subid
+      row.insertCell(3).innerHTML='<select name="sub_id" >'+
+                                    '<option > 17CSLAB61 </option>'+
+                                    '<option> 17CSLAB62 </option>'+
+                                    '<option> 17CSLAB63 </option>'+
+                                    '<option> 17CSLAB64 </option>'+
+                                    '<option> 17CSLAB65 </option>'+
+                                  '</select>';
+
+
+      //5th column
+      row.insertCell(4).innerHTML=table.rows[0].cells[4].innerHTML;
+      row.cells[4].childNodes[0].selectedIndex = 0;
+
+      //6th column
+      row.insertCell(5).innerHTML=table.rows[0].cells[5].innerHTML;
+      row.cells[5].childNodes[0].selectedIndex = 0;
+
+      //7th column
+      row.insertCell(6).innerHTML=table.rows[0].cells[6].innerHTML;
+      row.cells[6].childNodes[0].selectedIndex = 0;
+
+      /*
 			for(var i=0; i<colCount; i++) {
 
 				var newcell	= row.insertCell(i);
@@ -135,6 +171,8 @@
 							break;
 				}
 			}
+      */
+
 		}
 
 
