@@ -9,14 +9,14 @@ class subjectTable(models.Model):
     isLab = models.BooleanField(default=False)
 
     def __str__(self):
-        return subCode
+        return self.subCode
 
 class staffDetails(models.Model):
     staffId = models.TextField(primary_key=True)
     subName = models.TextField()
 
     def __str__(self):
-        return staffId
+        return self.staffId
 
 class classTimeTable(models.Model):
     staffId = models.ForeignKey(staffDetails,on_delete=models.CASCADE)
@@ -26,7 +26,7 @@ class classTimeTable(models.Model):
     classId = models.TextField()
 
     def __str__(self):
-        return str(staffID)+" "+str(subCode)+" "+str(day)+" "+str(period)+" "+str(classId)
+        return str(self.staffID)+" "+str(self.subCode)+" "+str(self.day)+" "+str(self.period)+" "+str(self.classId)
 
 class staffTimeTable(models.Model):
     staffId = models.ForeignKey(staffDetails,on_delete=models.CASCADE)
@@ -36,4 +36,4 @@ class staffTimeTable(models.Model):
     classId = models.TextField()
 
     def __str__(self):
-        return str(staffID)+" "+str(subCode)+" "+str(day)+" "+str(period)+" "+str(classId)
+        return str(self.staffID)+" "+str(self.subCode)+" "+str(self.day)+" "+str(self.period)+" "+str(self.classId)
