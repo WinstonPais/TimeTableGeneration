@@ -1,18 +1,18 @@
-<HTML>
-<HEAD>
+<html>
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</HEAD>
-<BODY>
-	<INPUT type="button" value="Add Theory" onclick="addTheoryRow('dataTable')" />
-  <INPUT type="button" value="Add Lab" onclick="addLabRow('dataTable')" />
-	<INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+</head>
+<body>
+	<input type="button" value="Add Theory" onclick="addTheoryRow('dataTable')" />
+  <input type="button" value="Add Lab" onclick="addLabRow('dataTable')" />
+	<input type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
 	<div class="container">
-	<form class="" action="{% url 'mainapp:inputPage' %}" method="post">
+	<form name="form1" action="{% url 'mainapp:inputPage' %}" method="post">
     {% csrf_token %}
 	<table class="table">
 	  <thead>
@@ -27,57 +27,54 @@
 		</tr>
 	</thead>
 	<tbody id="dataTable">
-		<TR>
-			<TD><INPUT type="checkbox" name="chk"/></TD>
+		<tr>
+			<td><input type="checkbox" name="chk"/></td>
       <td>Theory</td>
 			<td>
 				<select name="staff_id">
-					<option> CSE01 </option>
-					<option> CSE02</option>
-					<option> CSE03 </option>
-					<option> CSE04 </option>
-					<option> CSE05 </option> </select>
+					{% for staffde in staffd %}
+						<option>{{ staffde.staffId }}</option>
+					{% endfor %}
+				</select>
 			</td>
 			<td>
 				<select name="sub_id" >
-					<option > 17CS61 </option>
-					<option> 17CS62 </option>
-					<option> 17CS63 </option>
-					<option> 17CS64 </option>
-					<option> 17CS65 </option>
+					{% for subjectita in subjectt %}
+						<option>{{ subjectita.subCode }}</option>
+					{% endfor %}
 				</select>
 			</td>
 			<td>
 				<select name="day">
-					<option value="mon"> Monday </option>
-					<option value="tue"> Tuesday </option>
-					<option value="wed"> Wednesday </option>
-					<option value="thurs"> Thursday </option>
-					<option value="fri"> Friday </option></select>
+					<option>Monday </option>
+					<option>Tuesday</option>
+					<option>Wednesday</option>
+					<option>Thursday </option>
+					<option>Friday </option></select>
 			</td>
 			<td>
-				<select name="hr" >
-					<option value="one"> 1 </option>
-					<option value="two"> 2 </option>
-					<option value="three"> 3 </option>
-					<option value="four"> 4 </option>
-					<option value="five"> 5 </option>
-					<option value="six"> 6 </option>
-					<option value="seven"> 7 </option>
+				<select name="hr">
+					<option> 1 </option>
+					<option> 2 </option>
+					<option> 3 </option>
+					<option> 4 </option>
+					<option> 5 </option>
+					<option> 6 </option>
+					<option> 7 </option>
 				</select>
 			</td>
 			<td>
-				<select name="class" >
-					<option value="fourA"> 4a </option>
-					<option value="fourB"> 4b </option>
-					<option value="sixA"> 6a </option>
-					<option value="sixB"> 6b </option>
-					<option value="eigthA"> 8a </option>
-					<option value="eightB"> 8b </option>
+				<select name="class">
+					<option> 4a </option>
+					<option> 4b </option>
+					<option> 6a </option>
+					<option> 6b </option>
+					<option> 8a </option>
+					<option> 8b </option>
 				</select>
 			</td>
 
-		</TR>
+		</tr>
 		</tbody>
 	</TABLE>
   <center>
@@ -133,14 +130,8 @@
       row.cells[2].childNodes[0].selectedIndex = 0;
 
       //4th col subid
-      row.insertCell(3).innerHTML='<select name="sub_id" >'+
-                                    '<option > 17CSLAB61 </option>'+
-                                    '<option> 17CSLAB62 </option>'+
-                                    '<option> 17CSLAB63 </option>'+
-                                    '<option> 17CSLAB64 </option>'+
-                                    '<option> 17CSLAB65 </option>'+
-                                  '</select>';
-
+      row.insertCell(3).innerHTML=table.rows[0].cells[3].innerHTML;
+	  row.cells[3].childNodes[0].selectedIndex = 0;
 
       //5th column
       row.insertCell(4).innerHTML=table.rows[0].cells[4].innerHTML;
@@ -156,13 +147,10 @@
 
       /*
 			for(var i=0; i<colCount; i++) {
-
 				var newcell	= row.insertCell(i);
-
 				newcell.innerHTML = table.rows[0].cells[i].innerHTML;
 				//alert(newcell.childNodes);
 				switch(newcell.childNodes[0].type) {
-
 					case "checkbox":
 							newcell.childNodes[0].checked = false;
 							break;
@@ -202,5 +190,5 @@
 		}
 
 	</SCRIPT>
-</BODY>
-</HTML>
+</body>
+</html>
