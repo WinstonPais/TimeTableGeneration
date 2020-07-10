@@ -26,7 +26,7 @@ class classTimeTable(models.Model):
     classId = models.TextField()
 
     def __str__(self):
-        return str(self.staffID)+" "+str(self.subCode)+" "+str(self.day)+" "+str(self.period)+" "+str(self.classId)
+        return str(self.staffId)+" "+str(self.subCode)+" "+str(self.day)+" "+str(self.period)+" "+str(self.classId)
 
 class staffTimeTable(models.Model):
     staffId = models.ForeignKey(staffDetails,on_delete=models.CASCADE)
@@ -36,4 +36,4 @@ class staffTimeTable(models.Model):
     classId = models.TextField()
 
     def __str__(self):
-        return str(self.staffID)+" "+str(self.subCode)+" "+str(self.day)+" "+str(self.period)+" "+str(self.classId)
+        return str(self.staffId)+" "+str(self.subCode)+" "+str(self.day)+" "+str(self.period)+" "+str(self.classId)
