@@ -11,7 +11,7 @@ def index(request):
 
 def input(request):
     staffd = staffDetails.objects.all()
-    subjectt = subjectTable.objects.all()
+    subjectt = subjectTable.objects.all()   
     if request.method=='POST':
         day = request.POST.getlist('day')
         period = request.POST.getlist('hr')

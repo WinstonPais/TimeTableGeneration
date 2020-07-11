@@ -64,10 +64,27 @@
 			</td>
 			<td>
 				<select name="class">
+					<option>1a</option>
+					<option>1b</option>
+					<option>1c</option>
+					<option>1d</option>
+					<option>1e</option>
+					<option>1f</option>
+					<option>1g</option>
+					<option>1h</option>
+					<option>1i</option>
+					<option>2a</option>
+					<option>2b</option>
+					<option>3a</option>
+					<option>3b</option>
 					<option> 4a </option>
 					<option> 4b </option>
+					<option>5a</option>
+					<option>5b</option>
 					<option> 6a </option>
 					<option> 6b </option>
+					<option>7a</option>
+					<option>7b</option>
 					<option> 8a </option>
 					<option> 8b </option>
 				</select>
@@ -108,60 +125,6 @@
 				}
 			}
 		}
-
-    function addLabRow(tableID) {
-
-			var table = document.getElementById(tableID);
-
-			var rowCount = table.rows.length;
-			var row = table.insertRow(rowCount);
-
-			var colCount = table.rows[0].cells.length;
-
-      //first column
-      row.insertCell(0).innerHTML=table.rows[0].cells[0].innerHTML;
-
-      //2nd column
-      row.insertCell(1).innerHTML="Lab"
-
-      //third column (staf id)
-      row.insertCell(2).innerHTML=table.rows[0].cells[2].innerHTML;
-      row.cells[2].childNodes[0].selectedIndex = 0;
-
-      //4th col subid
-      row.insertCell(3).innerHTML=table.rows[0].cells[3].innerHTML;
-	  row.cells[3].childNodes[0].selectedIndex = 0;
-
-      //5th column
-      row.insertCell(4).innerHTML=table.rows[0].cells[4].innerHTML;
-      row.cells[4].childNodes[0].selectedIndex = 0;
-
-      //6th column
-      row.insertCell(5).innerHTML=table.rows[0].cells[5].innerHTML;
-      row.cells[5].childNodes[0].selectedIndex = 0;
-
-      //7th column
-      row.insertCell(6).innerHTML=table.rows[0].cells[6].innerHTML;
-      row.cells[6].childNodes[0].selectedIndex = 0;
-
-      /*
-			for(var i=0; i<colCount; i++) {
-				var newcell	= row.insertCell(i);
-				newcell.innerHTML = table.rows[0].cells[i].innerHTML;
-				//alert(newcell.childNodes);
-				switch(newcell.childNodes[0].type) {
-					case "checkbox":
-							newcell.childNodes[0].checked = false;
-							break;
-					case "select-one":
-							newcell.childNodes[0].selectedIndex = 0;
-							break;
-				}
-			}
-      */
-
-		}
-
 
 		function deleteRow(tableID) {
 			try {
